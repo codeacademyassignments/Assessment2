@@ -18,15 +18,14 @@ describe('promise', () => {
             promises.push(functions.combineArray(accumulator, book));
           });
 
-          Promise.all(promises).then(() => {
+          return Promise.all(promises).then(() => {
             expect(accumulator['J K Rowling'].length).toEqual(7);
             expect(accumulator['Sidney Sheldon'].length).toEqual(5);
           });
         });
       });
+      done();
     };
-
-    done();
     makeGetRequest({}, []);
   });
 });
